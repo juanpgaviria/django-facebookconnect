@@ -10,7 +10,8 @@
   <p class="error">Your username and password didn't match. Please try again.</p>
   {% endif %}
    <h4>Link facebook to an existing account:</h4>
-  <form action="" method="post" accept-charset="utf-8" class="nice-form">
+   <form action="" method="post" accept-charset="utf-8" class="nice-form">
+	{% csrf_token %}
     <input type="hidden" name="login" value="true" id="login">
     {{ login_form.as_p }}
     {% if next %}
@@ -20,7 +21,8 @@
   </form>
   <hr/>
    <h4>Link facebook to an new account:</h4>
-  <form action="" method="post" accept-charset="utf-8" class="nice-form">
+   <form action="" method="post" accept-charset="utf-8" class="nice-form">
+	{% csrf_token %}
     <input type="hidden" name="register" value="true" id="register">
     {{ registration_form.as_p }}
     {% if next %}
@@ -30,7 +32,8 @@
   </form>
   <hr/>
    <h4>Use facebook only:</h4>
-  <form action="" method="post" accept-charset="utf-8" class="nice-form">
+   <form action="" method="post" accept-charset="utf-8" class="nice-form">
+    {% csrf_token %}	   
     <input type="hidden" name="facebook_only" value="true" id="facebook_only">
     {% if next %}
     <input type="hidden" name="next" value="{{ next }}" id="next">        
